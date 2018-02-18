@@ -60,9 +60,8 @@ class Domaine
     <div class='signifiants'></div>
 </div>"""
 ####################################################################
-checkLoginState = () ->
-  FB.getLoginStatus (response) ->
-    console.log(response)
+statusChangeCallback = (response) ->
+  console.log response
 ####################################################################
 ####################################################################
     
