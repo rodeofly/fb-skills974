@@ -3,7 +3,7 @@
   var CLASSES, CURRENT_CLASSE, CURRENT_EVAL, DATA, DATA_TEMP, DOMAINES, Descripteur, Domaine, ID, SELECTED_DOMS, STUDENTS, STUDENTS_LENGTH, Signifiant, tuto;
 
   hello.init({
-    facebook: '2012415165697779'
+    facebook: '1785503828138573'
   }, {
     redirect_uri: 'index.html'
   });
