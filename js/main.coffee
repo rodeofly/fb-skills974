@@ -61,7 +61,13 @@ class Domaine
 </div>"""
 ####################################################################
 statusChangeCallback = (response) ->
-  console.log response
+  FB.api '/me', (response) ->
+    nom = "#{response.first_name} #{response.name}" 
+    id = response.id
+    img = "<img src='http://graph.facebook.com/#{response.id}/picture' style='display:inline-block'>"
+    $( "#fbButton" ).remove()
+    $( "#student" ).before img
+    $( "#student" ).val nom
 ####################################################################
 ####################################################################
     

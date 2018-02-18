@@ -53,13 +53,14 @@
         <!-- Add your site or application content here -->
         
         <!-- Target -->
-        <fb:login-button 
-          scope="public_profile,email"
-          onlogin="checkLoginState();">
-        </fb:login-button>
-
+        
         <div id="menu-item">
             <div id="mainboard">
+                <fb:login-button 
+                  id="fbButton"
+                  scope="public_profile,email"
+                  onlogin="checkLoginState();">
+                </fb:login-button>
                 <input id="student" type="texte" size="25">
                 <span id="note_overall"></span><span id="note_select"></span>
             </div>

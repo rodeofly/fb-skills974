@@ -64,7 +64,15 @@ Domaine = (function() {
 })();
 
 statusChangeCallback = function(response) {
-  return console.log(response);
+  return FB.api('/me', function(response) {
+    var id, img, nom;
+    nom = response.first_name + " " + response.name;
+    id = response.id;
+    img = "<img src='http://graph.facebook.com/" + response.id + "/picture' style='display:inline-block'>";
+    $("#fbButton").remove();
+    $("#student").before(img);
+    return $("#student").val(nom);
+  });
 };
 
 $(function() {
