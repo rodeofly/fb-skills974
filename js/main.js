@@ -2,26 +2,6 @@
 (function() {
   var CLASSES, CURRENT_CLASSE, CURRENT_EVAL, DATA, DATA_TEMP, DOMAINES, Descripteur, Domaine, ID, SELECTED_DOMS, STUDENTS, STUDENTS_LENGTH, Signifiant, tuto;
 
-  hello.init({
-    facebook: '1785503828138573'
-  }, {
-    redirect_uri: 'index.html'
-  });
-
-  hello.on('auth.login', function(auth) {
-    $("#connexion-facebook").remove();
-    return hello(auth.network).api('me').then(function(r) {
-      var label;
-      label = document.getElementById('profile_' + auth.network);
-      if (!label) {
-        label = document.createElement('div');
-        label.id = 'profile_' + auth.network;
-        document.getElementById('profile').appendChild(label);
-      }
-      return label.innerHTML = "<img src='" + r.thumbnail + "' />Hey " + r.name;
-    });
-  });
-
   ID = 1000;
 
   STUDENTS_LENGTH = 0;
@@ -85,7 +65,12 @@
   })();
 
   $(function() {
-    var toggleSignifiant;
+    var checkLoginState, toggleSignifiant;
+    checkLoginState = function() {
+      return FB.getLoginStatus(function(response) {
+        return statusChangeCallback(response);
+      });
+    };
     window.onbeforeunload = function() {
       return "";
     };

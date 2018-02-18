@@ -1,23 +1,3 @@
-hello.init
-	facebook: '1785503828138573',
-	
-, {redirect_uri: 'index.html'}
-
-
-
-
-hello.on 'auth.login', (auth) ->
-  $( "#connexion-facebook" ).remove()
-  # Call user information, for the given network
-  hello(auth.network).api('me').then (r) ->
-    #Inject it into the container
-    label = document.getElementById('profile_' + auth.network)
-    if not label
-      label = document.createElement('div');
-      label.id = 'profile_' + auth.network;
-      document.getElementById('profile').appendChild(label);
-    label.innerHTML = "<img src='#{r.thumbnail}' />Hey #{r.name}"
-
 #for DOM elements
 ID = 1000
 
@@ -87,7 +67,11 @@ class Domaine
    
 #On dom ready
 $ ->
-  
+
+  checkLoginState = () ->
+    FB.getLoginStatus (response) ->
+      statusChangeCallback(response)
+
   window.onbeforeunload = () -> return ""  
 
   $.getJSON "S4C_cat.json", ( data ) -> 
