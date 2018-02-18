@@ -65,12 +65,7 @@
   })();
 
   $(function() {
-    var checkLoginState, toggleSignifiant;
-    checkLoginState = function() {
-      return FB.getLoginStatus(function(response) {
-        return statusChangeCallback(response);
-      });
-    };
+    var toggleSignifiant;
     window.onbeforeunload = function() {
       return "";
     };
