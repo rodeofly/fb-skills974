@@ -60,6 +60,9 @@ class Domaine
     <div class='signifiants'></div>
 </div>"""
 ####################################################################
+checkLoginState = () ->
+  FB.getLoginStatus (response) ->
+    statusChangeCallback(response)
 ####################################################################
 ####################################################################
     
@@ -68,9 +71,7 @@ class Domaine
 #On dom ready
 $ ->
 
-  checkLoginState = () ->
-    FB.getLoginStatus (response) ->
-      statusChangeCallback(response)
+  
 
   window.onbeforeunload = () -> return ""  
 
